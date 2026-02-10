@@ -1,0 +1,12 @@
+runtime: python
+entrypoint: uvicorn app.webapp:app --host 0.0.0.0 --port 8000
+
+env:
+  - name: BOT_TOKEN
+    value: "ЗДЕСЬ_ПУСТО_ПОКА"  # на Amvera лучше задать как переменную окружения через UI
+  - name: WEBAPP_URL
+    value: "https://example.com"  # перепишем после получения домена
+
+python:
+  version: "3.11"
+  requirements: "requirements.txt"

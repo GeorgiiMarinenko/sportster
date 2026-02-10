@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sportster - Squash Rating</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Telegram WebApp script -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 16px;
+      background-color: #f5f5f5;
+    }
+    #app {
+      max-width: 480px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    h1, h2, h3, h4 {
+      margin-top: 0;
+    }
+    .stats p {
+      margin: 4px 0;
+    }
+    button {
+      width: 100%;
+      padding: 10px 16px;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: none;
+      background-color: #2a8cff;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:active {
+      opacity: 0.8;
+    }
+    label {
+      display: block;
+      margin-top: 8px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      box-sizing: border-box;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    ul {
+      padding-left: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>Мой сквош рейтинг</h1>
+
+    <div class="stats">
+      <p>Рейтинг: <span id="rating">1000</span></p>
+      <p>Выигранные игры: <span id="wins">0</span></p>
+      <p>Проигранные игры: <span id="losses">0</span></p>
+    </div>
+
+    <button id="start-match-btn">Начать матч</button>
+
+    <div id="match-section" style="display: none;">
+      <h2>Новый матч</h2>
+      <label>
+        Ник соперника (как в Telegram):
+        <input type="text" id="opponent-username" placeholder="@username" />
+      </label>
+      <button id="find-opponent-btn">Найти соперника</button>
+
+      <div id="game-score-section" style="display: none;">
+        <h3>Счёт по геймам</h3>
+        <p>Текущий гейм: <span id="current-game-number">1</span></p>
+        <label>
+          Очки игрока:
+          <input type="number" id="player-score" min="0" />
+        </label>
+        <label>
+          Очки соперника:
+          <input type="number" id="opponent-score" min="0" />
+        </label>
+        <button id="add-game-btn">Добавить гейм</button>
+
+        <h4>Сыгранные геймы:</h4>
+        <ul id="games-list"></ul>
+
+        <button id="finish-match-btn">Закончить матч</button>
+      </div>
+    </div>
+
+    <div id="result-section" style="display: none;">
+      <h2>Результаты матча</h2>
+      <p id="result-summary"></p>
+      <p id="rating-change"></p>
+    </div>
+  </div>
+
+  <script src="/static/main.js"></script>
+</body>
+</html>
